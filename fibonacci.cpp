@@ -1,47 +1,31 @@
-// #include<iostream>
-// using namespace std;
-
-// int fibo(int n){
-//     int first ,sec, next;
-//     for (int i=0; i<n ;i++){
-//         first=0;
-//         sec =1;
-//         // cout<<first<<endl<<sec<<endl;
-//         next=first+sec;
-//         cout<<"fibonscci : "<<first<<endl<<sec<<endl<<next<<endl;
-//         first=sec;
-//         sec=next;
-//         // cout<<"fibonscci : "<<first<<endl<<sec<<endl<<next<<endl;
-//     }
-//     // cout<<"fibonscci : "<<i<<endl
-// }
-// int main(){
-//      fibo(7);
-// }
 #include <iostream>
 using namespace std;
 
-// Function to return the nth Fibonacci number
-int fibonacci(int n) {
+int printFibonacci(int n) {
+    int a = 0, b = 1, next;
 
-    n= 0;
-    if (n <= 1) {
-        return n; // Base cases: fib(0) = 0, fib(1) = 1
+    cout << a << " " << b << " ";
+
+    for (int i = 3; i <= n; ++i) {
+        next = a + b;
+        cout << next << " ";
+        a = b;
+        b = next;
     }
-    return fibonacci(n - 1) + fibonacci(n - 2); // Recursion
+    cout << endl;
 }
 
 int main() {
-    int n;
+    int terms;
 
     cout << "Enter the number of terms: ";
-    cin >> n;
+    cin >> terms;
 
-    cout << "Fibonacci sequence up to term " << n << " is:\n";
-    for (int i = 0; i < n; i++) {
-        cout << fibonacci(i) << " ";
+    if (terms >= 1) {
+        printFibonacci(terms);
+    } else {
+        cout << "Please enter a positive int." << endl;
     }
-    cout << endl;
 
     return 0;
 }
